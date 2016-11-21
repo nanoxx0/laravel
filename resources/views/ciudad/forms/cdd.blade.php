@@ -12,14 +12,9 @@
              
              
                 <select >
-                  <option>First option</option>
-                  <option>Second option</option>
-                  <option>Third option</option>
-                  <option>Fourth option</option>
-                  <option>Fifth option</option>
-                  <option>Sixth option</option>
-                  <option>Seventh option</option>
-                  <option>Eighth option</option>
+                   @foreach($regions as $region)
+                  <option value="{!!$region->id!!}">{!!$region->nombre!!}</option>
+                	@endforeach
                 </select>
               </div>
 
