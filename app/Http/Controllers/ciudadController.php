@@ -23,9 +23,10 @@ class ciudadController extends Controller {
 	 * @return Response
 	 */
 	public function create()
-	{
+
+	{	$regions = \Sistema\Region::all();
 		$ciudads = \Sistema\Ciudad::all();
-		return view('ciudad.create',compact('ciudads'));
+		return view('ciudad.create',compact('ciudads'),compact('regions'));
 	}
 
 	/**

@@ -28,7 +28,7 @@
 
     <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Ciudades</a> </div>
-    <h1>Ciudades/h1>
+    <h1>Ciudades</h1>
     </div>
     <div class="row-fluid">
     <div class="span20">
@@ -51,50 +51,6 @@
 
 
     <!--Tabla-->
-    <!--Tabla dinamica-->
-    <div class="container-fluid">
-
-    <div class="row-fluid">
-      <div class="span12">
-
-
-
-        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>Regiones</h5>
-          </div>
-          <div class="widget-content nopadding">
-            
-            <table class="table table-bordered data-table">
-              <thead>
-                <tr>
-                  <th>Nombre Región</th>
-                  <th>Numero</th>
-                  <th>Actualizar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </thead>
-              <tbody>
-               
-               @foreach($regions as $region)
-                
-                <tr>
-                    <td>{{$region->nombre}}</td>
-                    <td>{{$region->numero}}</td>
-                    <td>{!!link_to_route('region.edit', $title = 'Editar', $parameters = $region->id, $attributes = ['class'=>'btn btn-primary'])!!}</td>
-                    <td>{!!Form::open(['route'=>['region.destroy',$region->id], 'method'=>'DELETE'])!!}
-                    {!!Form::submit('Eliminar', ['class'=>'btn btn-danger'])!!}
-          {!!Form::close()!!}</td>
-                </tr>
-              
-             @endforeach 
-             </tbody>
-              </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
 
     {!!Html::script('js/jquery.min.js')!!} 
