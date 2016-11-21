@@ -11,7 +11,7 @@ class ciudad extends Model implements AuthenticatableContract, CanResetPasswordC
 
 	use Authenticatable, CanResetPassword, SoftDeletes;
 
-	protected $table = "ciudads"
+	protected $table = "ciudads";
 
 	/**
 	 * The attributes that are mass assignable.

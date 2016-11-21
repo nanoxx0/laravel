@@ -24,7 +24,8 @@ class ciudadController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$ciudads = \Sistema\Ciudad::all();
+		return view('ciudad.create',compact('ciudads'));
 	}
 
 	/**
