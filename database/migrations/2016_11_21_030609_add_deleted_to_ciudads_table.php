@@ -14,7 +14,7 @@ class AddDeletedToCiudadsTable extends Migration {
 	{
 		Schema::table('ciudads', function(Blueprint $table)
 		{
-			//
+			$table->SoftDeletes();
 		});
 	}
 
