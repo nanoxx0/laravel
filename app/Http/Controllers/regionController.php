@@ -2,6 +2,7 @@
 
 use Sistema\Http\Requests;
 use Sistema\Http\Requests\RegionCreateRequest;
+use Sistema\Http\Requests\RegionUpdateRequest;
 use Sistema\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -78,7 +79,7 @@ class regionController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, RegionCreateRequest $request)
+	public function update($id, RegionUpdateRequest $request)
 	{
 		$region = \Sistema\Region::find($id);
 		$region->fill($request->all());
