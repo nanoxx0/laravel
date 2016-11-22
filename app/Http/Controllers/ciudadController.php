@@ -2,7 +2,10 @@
 
 use Sistema\Http\Requests;
 use Sistema\Http\Controllers\Controller;
-
+use Sistema\Http\Requests\CiudadCreateRequest;
+use Sistema\Http\Requests\CiudadUpdateRequest;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 
 class ciudadController extends Controller {
@@ -34,9 +37,17 @@ class ciudadController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-		//
+	public function store(CiudadCreateRequest $request)
+	{	
+		
+		\Sistema\Ciudad::create([
+			'nombre' => $request['nombre'],
+			'regions_id' => $request['numero_region'],
+			]);
+		session::flash('message','Ciudad Ingresada Correctamente');
+		return redirect::to('/ciudad/create');
+
+		
 	}
 
 	/**

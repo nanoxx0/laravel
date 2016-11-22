@@ -5,13 +5,13 @@
 	          </div>
 	        </div>
 	        <div class="control-group">
-	         {!!Form::label('region','Región: ',['class'=>'control-label'])!!} 
+	         {!!Form::label('region','Seleccione Región: ',['class'=>'control-label'])!!} 
 	          <div class="controls">        
 
 
              
              
-                <select >
+                <select name="numero_region" >
                    @foreach($regions as $region)
                   <option value="{!!$region->id!!}">{!!$region->nombre!!}</option>
                 	@endforeach

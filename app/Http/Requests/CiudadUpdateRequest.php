@@ -2,7 +2,7 @@
 
 use Sistema\Http\Requests\Request;
 
-class RegionCreateRequest extends Request {
+class CiudadUpdateRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -11,7 +11,7 @@ class RegionCreateRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return true;
+		return false;
 	}
 
 	/**
@@ -22,8 +22,7 @@ class RegionCreateRequest extends Request {
 	public function rules()
 	{
 		return [
-			'nombre' => 'required|unique:regions|string',
-			'ciudad' => 'required|unique:regions|numeric',
+			//
 		];
 	}
 
