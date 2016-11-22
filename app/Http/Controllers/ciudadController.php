@@ -17,9 +17,19 @@ class ciudadController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		
 	}
 
+	public function listarCiudad()
+	{
+		$result = \DB::table('ciudads')
+		->select('ciudads.nombre','regions.nombre as nombre_region')
+		->from('ciudads')
+		->join('regions','ciudads.regions_id','=','regions.id')
+		->get();
+		
+		return $result;
+	}
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -27,9 +37,11 @@ class ciudadController extends Controller {
 	 */
 	public function create()
 
-	{	$regions = \Sistema\Region::all();
+	{	
+		$result = 1;
+		$regions = \Sistema\Region::all();
 		$ciudads = \Sistema\Ciudad::all();
-		return view('ciudad.create',compact('ciudads'),compact('regions'));
+		return view('ciudad.create',compact('ciudads'),compact('regions'),$result);
 	}
 
 	/**

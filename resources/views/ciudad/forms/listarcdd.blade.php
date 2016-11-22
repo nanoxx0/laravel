@@ -16,7 +16,6 @@
               <thead>
                 <tr>
                   <th>Nombre Ciudad</th>
-                  <th>Numero Región</th>
                   <th>Nombre Región</th>
                   <th>Actualizar</th>
                   <th>Eliminar</th>
@@ -24,12 +23,11 @@
               </thead>
               <tbody>
                
-               @foreach($ciudads as $ciudad)
+               @foreach($result as $results)
                 
                 <tr>
-                    <td>{{$ciudad->nombre}}</td>
-                    <td>{{$ciudad->numero}}</td>
-                    <td>{{$ciudad->numero}}</td>
+                    <td>{{$res->nombre}}</td>
+                    <td>{{$res->nombre_region}}</td>
                     <td>{!!link_to_route('ciudad.edit', $title = 'Editar', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-primary'])!!}</td>
                     <td>{!!Form::open(['route'=>['region.destroy',$ciudad->id], 'method'=>'DELETE'])!!}
                     {!!Form::submit('Eliminar', ['class'=>'btn btn-danger'])!!}
