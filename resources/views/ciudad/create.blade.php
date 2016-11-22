@@ -51,7 +51,7 @@
 
 
     <!--Tabla-->
-
+        @include('ciudad.forms.listarcdd')
 
     {!!Html::script('js/jquery.min.js')!!} 
     {!!Html::script('js/jquery.ui.custom.js')!!} 
