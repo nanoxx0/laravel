@@ -11,7 +11,7 @@ class CiudadUpdateRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 	/**
@@ -22,7 +22,8 @@ class CiudadUpdateRequest extends Request {
 	public function rules()
 	{
 		return [
-			//
+			'nombre' => 'required|unique:ciudads|string',
+			'regions_id' => 'required|numeric',
 		];
 	}
 

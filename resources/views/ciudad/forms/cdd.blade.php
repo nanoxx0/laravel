@@ -11,7 +11,8 @@
 
              
              
-                <select name="numero_region" >
+                <select name="regions_id" >
+                	<option value="">Seleccione Región</option>
                    @foreach($regions as $region)
                   <option value="{!!$region->id!!}">{!!$region->nombre!!}</option>
                 	@endforeach

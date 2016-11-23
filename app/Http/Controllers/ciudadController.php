@@ -1,4 +1,4 @@
-		<?php namespace Sistema\Http\Controllers;
+<?php namespace Sistema\Http\Controllers;
 
 		use Sistema\Http\Requests;
 		use Sistema\Http\Controllers\Controller;
@@ -9,6 +9,7 @@
 		use Illuminate\Http\Request;
 		use Sistema\Region;
 		use Sistema\Ciudad;
+
 		class ciudadController extends Controller {
 
 			/**
@@ -47,7 +48,7 @@
 				
 				Ciudad::create([
 					'nombre' => $request['nombre'],
-					'regions_id' => $request['numero_region'],
+					'regions_id' => $request['regions_id'],
 					]);
 				session::flash('message','Ciudad Ingresada Correctamente');
 				return redirect::to('/ciudad/create');
@@ -74,7 +75,9 @@
 			 */
 			public function edit($id)
 			{
-				//
+				$regions = Region::all();
+				$ciudad = Ciudad::find($id);
+		return view('ciudad.edit',['ciudad'=>$ciudad],compact('regions'));
 			}
 
 			/**
@@ -83,9 +86,13 @@
 			 * @param  int  $id
 			 * @return Response
 			 */
-			public function update($id)
+			public function update($id, CiudadUpdateRequest $request)
 			{
-				//
+				$ciudad = Ciudad::find($id);
+				$ciudad->fill($request->all());
+				$ciudad->save();
+				session::flash('message','Ciudad Editada Correctamente');
+				return redirect::to('/ciudad/create');
 			}
 
 			/**
@@ -96,7 +103,9 @@
 			 */
 			public function destroy($id)
 			{
-				//
+				Ciudad::destroy($id);				
+				session::flash('message','Ciudad Eliminada Correctamente');
+				return redirect::to('/ciudad/create');
 			}
 
 		}

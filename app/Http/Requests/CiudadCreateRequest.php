@@ -23,7 +23,7 @@ class CiudadCreateRequest extends Request {
 	{
 		return [
 			'nombre' => 'required|unique:ciudads|string',
-			'numero_region' => 'required',
+			'regions_id' => 'required|numeric',
 		];
 	}
 
