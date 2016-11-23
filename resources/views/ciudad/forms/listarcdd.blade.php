@@ -23,17 +23,17 @@
               </thead>
               <tbody>
                
-               @foreach($result as $results)
-                
+               @foreach($ciudads as $ciudad)
+               
                 <tr>
-                    <td>{{$res->nombre}}</td>
-                    <td>{{$res->nombre_region}}</td>
+                    <td>{{$ciudad->nombre}}</td>
+                    <td>{{$ciudad->region->nombre}}</td>
                     <td>{!!link_to_route('ciudad.edit', $title = 'Editar', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-primary'])!!}</td>
-                    <td>{!!Form::open(['route'=>['region.destroy',$ciudad->id], 'method'=>'DELETE'])!!}
+                    <td>{!!Form::open(['route'=>['ciudad.destroy',$ciudad->id], 'method'=>'DELETE'])!!}
                     {!!Form::submit('Eliminar', ['class'=>'btn btn-danger'])!!}
           {!!Form::close()!!}</td>
                 </tr>
-              
+          
              @endforeach 
              </tbody>
               </table>

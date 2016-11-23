@@ -27,5 +27,8 @@ class region extends Model implements AuthenticatableContract, CanResetPasswordC
 	 */
 	protected $hidden = ['remember_token'];
 
+	public function ciudads(){
+		return $this->hasMany('Sistema\ciudad');
+	}
 
 }
