@@ -25,3 +25,4 @@ Route::resource('region','regionController');
 Route::resource('ciudad','ciudadController');
 Route::resource('mediopago','mediopagoController');
 Route::resource('impuesto','impuestoController');
+Route::resource('categoria','categoriaController');
