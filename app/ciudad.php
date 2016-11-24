@@ -30,4 +30,8 @@ class ciudad extends Model implements AuthenticatableContract, CanResetPasswordC
 	public function region(){
 		return $this->belongsTo('Sistema\region','regions_id','id');
 			}
+
+	public function clientes(){
+		return $this->hasMany('Sistema\cliente');
+	}		
 }

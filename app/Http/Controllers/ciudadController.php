@@ -33,9 +33,8 @@
 				public function create()	
 
 			{	
-				$regions = Region::all();				
 				$ciudads = Ciudad::all();
-				return view('ciudad.create',compact('ciudads'),compact('regions'));
+				return view('ciudad.create',compact('ciudads'));
 			}
 
 			/**
