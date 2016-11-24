@@ -23,3 +23,4 @@ Route::controllers([
 
 Route::resource('region','regionController');
 Route::resource('ciudad','ciudadController');
+Route::resource('mediopago','mediopagoController');
