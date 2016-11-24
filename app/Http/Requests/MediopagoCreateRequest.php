@@ -23,7 +23,7 @@ class MediopagoCreateRequest extends Request {
 	{
 		return [
 			'nombre' => 'required|unique:mediopagos|string',
-			'plazo' => 'required|unique:mediopagos|numeric',
+			'plazo' => 'required|numeric',
 		];
 	}
 

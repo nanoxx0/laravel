@@ -68,7 +68,8 @@ class mediopagoController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$mediopago = Mediopago::find($id);
+		return view('mediopago.edit',['mediopago'=>$mediopago]);
 	}
 
 	/**
@@ -77,9 +78,13 @@ class mediopagoController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, MediopagoUpdateRequest $request)
 	{
-		//
+		$mediopago = Mediopago::find($id);
+		$mediopago->fill($request->all());
+		$mediopago->save();
+		session::flash('message','Medio de Pago Editado Correctamente');
+		return redirect::to('/mediopago/create');
 	}
 
 	/**
@@ -90,7 +95,9 @@ class mediopagoController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Mediopago::destroy($id);				
+				session::flash('message','Medio de Pago Eliminado Correctamente');
+				return redirect::to('/mediopago/create');
 	}
 
 }

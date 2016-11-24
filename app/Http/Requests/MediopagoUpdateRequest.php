@@ -11,7 +11,7 @@ class MediopagoUpdateRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 	/**
@@ -22,7 +22,8 @@ class MediopagoUpdateRequest extends Request {
 	public function rules()
 	{
 		return [
-			//
+			'nombre' => 'required|string',
+			'plazo' => 'required|numeric',
 		];
 	}
 
