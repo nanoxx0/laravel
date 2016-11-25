@@ -19,11 +19,7 @@
     {!!Html::style('font-awesome/css/font-awesome.css')!!}
 
 
-
-
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-
-
 
 
     <div id="content-header">
@@ -41,7 +37,7 @@
           
          @include('alerts.request')
           {!!Form::open(['route'=>'cliente.store', 'method'=>'POST'])!!}
-                  @include('cliente.forms.cli')
+                  @include('cliente.forms.cli')                  
           {!!Form::close()!!}
         </div>
       </div>
@@ -50,7 +46,60 @@
 
 
 
-    <!--Tabla-->
+   <!--Tabla dinamica-->
+   <div class="container-fluid">
+
+    <div class="row-fluid">
+      <div class="span12">
+
+
+
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Clientes</h5>
+          </div>
+          <div class="widget-content nopadding">
+            
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>Rut Cliente</th>
+                  <th>Nombre</th>
+                  <th>Email</th>
+                  <th>Dirección</th>
+                  <th>Ciudad</th>
+                  <th>Telefono</th>
+                  <th>Giro</th>
+                  <th>Actualizar</th>
+                  <th>Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+               
+               @foreach($clientes as $cliente)
+               
+                <tr>
+                    <td>{{$cliente->rut}}</td>
+                    <td>{{$cliente->nombre}}</td>
+                    <td>{{$cliente->email}}</td>
+                    <td>{{$cliente->direccion}}</td>
+                    <td>{{$cliente->ciudad->nombre}}</td>
+                    <td>{{$cliente->telefono}}</td>
+                    <td>{{$cliente->giro}}</td>
+                    <td>{!!link_to_route('cliente.edit', $title = 'Editar', $parameters = $cliente->id, $attributes = ['class'=>'btn btn-primary'])!!}</td>
+                    <td>{!!Form::open(['route'=>['cliente.destroy',$cliente->id], 'method'=>'DELETE'])!!}
+                    {!!Form::submit('Eliminar', ['class'=>'btn btn-danger'])!!}
+          {!!Form::close()!!}</td>
+                </tr>
+          
+             @endforeach 
+             </tbody>
+              </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
        
 
     {!!Html::script('js/jquery.min.js')!!} 

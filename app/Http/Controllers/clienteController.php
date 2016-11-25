@@ -30,10 +30,9 @@ class clienteController extends Controller {
 	 */
 	public function create()
 	{
-		$clientes = Cliente::all();
-		$regions = Region::all();				
+		$clientes = Cliente::all();	
 		$ciudads = Ciudad::all();
-		return view('cliente.create',compact('clientes'),compact('ciudads'),compact('regions'));
+		return view('cliente.create',compact('clientes'),compact('ciudads'));
 	}
 
 	/**
@@ -41,9 +40,20 @@ class clienteController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(ClienteCreateRequest $request)
 	{
-		//
+		Cliente::create([
+					'rut' => $request['rut'],
+					'nombre' => $request['nombre'],
+					'email' => $request['email'],
+					'direccion' => $request['direccion'],
+					'ciudads_id' => $request['ciudads_id'],
+					'telefono' => $request['telefono'],
+					'giro' => $request['giro'],
+					'estado' => $request['estado'],
+					]);
+				session::flash('message','Cliente Ingresado Correctamente');
+				return redirect::to('/cliente/create');
 	}
 
 	/**
