@@ -1,10 +1,10 @@
 
-{!!Html::script('js/validarRUT.js')!!}
+
 
        <div class="control-group">
 	        	{!!Form::label('rut','Rut Cliente: ',['class'=>'control-label'])!!}          
 	          <div class="controls">
-	          	{!!Form::text('rut',null,['class'=>'span3','onBlur'=>'checkRut(this)','placeholder'=>'Ingrese Rut Cliente'])!!}     	
+	          	{!!Form::text('rut',null,['class'=>'span3','readonly','placeholder'=>'Ingrese Rut Cliente'])!!}     	
 	          </div>
 	          {!!Form::label('nombre','Nombre Cliente: ',['class'=>'control-label'])!!}          
 	          <div class="controls">

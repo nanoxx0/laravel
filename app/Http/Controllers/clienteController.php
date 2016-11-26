@@ -50,7 +50,7 @@ class clienteController extends Controller {
 					'ciudads_id' => $request['ciudads_id'],
 					'telefono' => $request['telefono'],
 					'giro' => $request['giro'],
-					'estado' => $request['estado'],
+					
 					]);
 				session::flash('message','Cliente Ingresado Correctamente');
 				return redirect::to('/cliente/create');
@@ -74,8 +74,10 @@ class clienteController extends Controller {
 	 * @return Response
 	 */
 	public function edit($id)
-	{
-		//
+	{	
+		$ciudads = Ciudad::all();
+		$cliente = Cliente::find($id);
+		return view('cliente.edit',['cliente'=>$cliente],compact('ciudads'));
 	}
 
 	/**
@@ -84,9 +86,13 @@ class clienteController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, ClienteUpdateRequest $request)
 	{
-		//
+		$cliente = Cliente::find($id);
+				$cliente->fill($request->all());
+				$cliente->save();
+				session::flash('message','Cliente Editado Correctamente');
+				return redirect::to('/cliente/create');
 	}
 
 	/**
@@ -97,7 +103,9 @@ class clienteController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		Cliente::destroy($id);				
+				session::flash('message','Cliente Inactivo');
+				return redirect::to('/cliente/create');
 	}
 
 }

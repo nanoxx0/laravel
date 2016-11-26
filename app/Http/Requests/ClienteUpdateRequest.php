@@ -11,7 +11,7 @@ class ClienteUpdateRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 	/**
@@ -22,7 +22,11 @@ class ClienteUpdateRequest extends Request {
 	public function rules()
 	{
 		return [
-			//
+			
+			'nombre' => 'required|string',
+			'direccion' => 'required',
+			'ciudads_id' => 'required|numeric',
+			'giro' => 'required',
 		];
 	}
 

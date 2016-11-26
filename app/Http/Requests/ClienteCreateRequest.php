@@ -24,12 +24,10 @@ class ClienteCreateRequest extends Request {
 		return [
 			'rut' => 'required|unique:clientes|string',
 			'nombre' => 'required|string',
-			'email' => 'required|email',
 			'direccion' => 'required',
 			'ciudads_id' => 'required|numeric',
-			'telefono' => 'required',
 			'giro' => 'required',
-			'estado' => 'required',
+			
 		];
 	}
 

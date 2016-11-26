@@ -1,5 +1,5 @@
 	@extends('layouts.principal')
-	@section('content')
+	@section('content')	
 
 	<html lang="es">
 	<meta charset="UTF-8" />
@@ -13,23 +13,21 @@
 	{!!Html::style('css/matrix-media.css')!!}
 	{!!Html::style('font-awesome/css/font-awesome.css')!!}
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-
 	<div id="content-header">
-	<div id="breadcrumb"> <a href="#" title="Al Menu Principal" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Actualizar Medio de Pago</a> </div>
-	<h1>Medios de Pago</h1>
+	<div id="breadcrumb"> <a href="#" title="Al Menu Principal" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Clientes</a> </div>
+	<h1>Clientes</h1>
 	</div>
 	<div class="row-fluid">
 	<div class="span20">
 	  <div class="widget-box">
 	    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-	      <h5>Actualizar Medios de Pago</h5>
+	      <h5>Actualizar Cliente</h5>
 	    </div>
 	    <div class="widget-content nopadding">
-	    <div class="form-horizontal">        
-	      
+	    <div class="form-horizontal">       
 	       @include('alerts.request');
-	      {!!Form::model($mediopago,['route'=>['mediopago.update',$mediopago->id], 'method'=>'PUT'])!!}
-	      @include('mediopago.forms.mdp')
+	      {!!Form::model($cliente,['route'=>['cliente.update',$cliente->id], 'method'=>'PUT'])!!}
+	      @include('cliente.forms.clie')
 	      {!!Form::close()!!}
 	    </div>
 	  </div>

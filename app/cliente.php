@@ -14,7 +14,7 @@ class cliente extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['rut', 'nombre','email','direccion','telefono','giro','estado','ciudads_id'];
+	protected $fillable = ['rut', 'nombre','email','direccion','telefono','giro','ciudads_id'];
 	protected $dates =['deleted_at'];
 	/**
 	 * The attributes excluded from the model's JSON form.
